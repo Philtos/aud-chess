@@ -1,3 +1,6 @@
+
+// Implementierung der Klasse Tile und Variablen
+
 class Tile {
     
   Rect *kachel = nullptr;
@@ -7,6 +10,8 @@ class Tile {
   int rank;
   char file;
 
+ // Farbe der Kacheln wird festgelegt
+    
   public:
     
   void setColor(char color) {
@@ -17,10 +22,12 @@ class Tile {
     return color;
   }
  
+     // Feld bzw. Kacheln werden  eingefärbt  
   void mark() {
     kachel->setFill("#FEE3D7");    
   }
     
+        
   void unmark() {
   if (this->getColor() == 'w' || this->getColor() == 'W') {
       kachel -> setFill("#A5A994");
@@ -29,11 +36,16 @@ class Tile {
     }
   }
     
-  void highlight(int wait) {
+  
+    //Ausgewähltes Feld wird hervorgehoben
+    
+    void highlight(int wait) {
     mark();
     AlgoViz::sleep(wait);
     unmark();  
   }
+    
+    // Set vund Get für belegte Felder
     
   void setOccupied(bool isOccupied) {
     this->isOccupied = isOccupied;
@@ -59,6 +71,8 @@ class Tile {
     return file;
   }
     
+ //Ein-Ausblenden der Labels   
+    
   void hideLabel() {
     this->label->hide();
   }
@@ -67,10 +81,14 @@ class Tile {
      this->label->show();
   }
    
+   //Felbezeichnungen werden gesetzt
+    
   void str2pos (string pos) {
     this->setFile(str2file(pos));
     this->setRank(str2rank(pos));
   }
+    
+    //Komplettes Spielfeld wird erstellt
     
   Tile(string pos, char color) {
     this->setFile(str2file(pos));
