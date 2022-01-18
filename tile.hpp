@@ -22,7 +22,8 @@ class Tile {
     return color;
   }
  
-     // Feld bzw. Kacheln werden  eingefärbt  
+  // Feld bzw. Kacheln werden  eingefärbt  
+    
   void mark() {
     kachel->setFill("#FEE3D7");    
   }
@@ -45,7 +46,7 @@ class Tile {
     unmark();  
   }
     
-    // Set vund Get für belegte Felder
+    // Set und Get für belegte Felder
     
   void setOccupied(bool isOccupied) {
     this->isOccupied = isOccupied;
@@ -81,14 +82,14 @@ class Tile {
      this->label->show();
   }
    
-   //Felbezeichnungen werden gesetzt
+   //Feldbezeichnungen werden gesetzt
     
   void str2pos (string pos) {
     this->setFile(str2file(pos));
     this->setRank(str2rank(pos));
   }
     
-    //Komplettes Spielfeld wird erstellt
+    //Konstruktor für die Klasse "Kachel"
     
   Tile(string pos, char color) {
     this->setFile(str2file(pos));
@@ -107,6 +108,8 @@ class Tile {
   };
 
 };
+
+// Funktion für Rückgabe einer bestimmten Kachel
 
 vector < Tile * > tiles;
 Tile * tile = nullptr;
